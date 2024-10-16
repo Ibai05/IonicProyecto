@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'alta',
+    loadChildren: () => import('./alta/alta.module').then( m => m.AltaPageModule)
   }
 ];
 
