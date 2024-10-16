@@ -7,8 +7,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  username: string; // Define username
-  password: string; // Define password
+  username: string = ''; // Inicializar username
+  password: string = ''; // Inicializar password
 
   constructor() {}
 
