@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CursoService } from '.curso.service'; 
 
 @Component({
   selector: 'app-folder',
@@ -8,10 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderPage implements OnInit {
   public folder!: string;
+  public cursos: any[] = [];
   private activatedRoute = inject(ActivatedRoute);
+  private cursoService = inject(CursoService); 
+
   constructor() {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+
+    // Cargar los cursos al inicializar
+    this.cursoService.getCursos().subscribe(
+      (data: any[]) => {
+        this.cursos = data; 
+      },
+      (error: any) => {
+        console.error('Error al cargar cursos:', error);
+      }
+    );
   }
 }
