@@ -22,11 +22,11 @@ export class FolderPage implements OnInit {
 
   cargarCursos() {
     this.cursoService.getCursos().subscribe(
-      (data) => {
+      (data:any) => {
         this.cursos = data; // Almacena los cursos en el array
         console.log(this.cursos); // Puedes ver los cursos en la consola
       },
-      (error) => {
+      (error:any) => {
         console.error('Error al cargar los cursos', error); // Manejo de errores
       }
     );
