@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlumnoService } from '../services/alumno.service';
-import { CursoService } from '../services/curso.service';
+import { AlumnoService } from '../alumno.service';
+import { CursoService } from '..curso.service';
 
 @Component({
   selector: 'app-alta',
