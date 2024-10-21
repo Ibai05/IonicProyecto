@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
               // o SessionStorage
               // sessionStorage.setItem('user', JSON.stringify(response.user));
 
-              this.router.navigate(['/folder']);
+              this.router.navigate(['/folder/Inbox']);
             } else {
               console.log('Credenciales incorrectas');
             }
