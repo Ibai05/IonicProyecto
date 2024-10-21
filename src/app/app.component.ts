@@ -9,7 +9,7 @@ import { AuthService } from './auth.service'; // Asegúrate de que la ruta sea c
 export class AppComponent {
   public appPages = [
     { title: 'Inicio', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Alta', url: '/folder/alta', icon: 'mail' },
+    { title: 'Alta', url: '/alta', icon: 'mail' },
     { title: 'Login', url: '/login', icon: 'mail' },
   ];
   
