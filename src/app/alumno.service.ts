@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AlumnoService {
-  private apiUrl = 'http://44.194.177.243:8001/alumno'; // Cambia esto a tu URL base
+  private apiUrl = 'http://44.194.177.243:8001/alumnos'; // Cambia esto a tu URL base
 
   constructor(private http: HttpClient) {}
 
