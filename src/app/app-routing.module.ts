@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -9,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule), canActivate: [AuthGuard] ,
   },
   {
     path: 'alta',
-    loadChildren: () => import('./alta/alta.module').then( m => m.AltaPageModule)
+    loadChildren: () => import('./alta/alta.module').then( m => m.AltaPageModule), canActivate: [AuthGuard] ,
   },
   {
     path: 'login',
