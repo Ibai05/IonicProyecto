@@ -27,11 +27,15 @@ export class LoginPage implements OnInit {
         .subscribe(
           (response: any) => {
             if (response.success) {
-              localStorage.setItem('user', JSON.stringify(response.user));
-              // o SessionStorage
-              // sessionStorage.setItem('user', JSON.stringify(response.user));
+              // Supongamos que el backend devuelve nombre y apellido
+              const user = {
+                nombre: response.user.nombre, // Cambia según la respuesta de tu backend
+                apellido: response.user.apellido // Cambia según la respuesta de tu backend
+              };
 
-              this.router.navigate(['/folder/Inbox']);
+              localStorage.setItem('user', JSON.stringify(user)); // Guardar usuario en LocalStorage
+
+              this.router.navigate(['/folder/inbox']);
             } else {
               console.log('Credenciales incorrectas');
             }
