@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
                 apellido: response.user.apellido 
               };
 
-              this.authService.login(user); // Llama al servicio de autenticación para guardar el usuario
+              this.authService.login(user); 
               this.router.navigate(['/folder/inbox']);
             } else {
               console.log('Credenciales incorrectas');

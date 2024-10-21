@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth.service'; // Asegúrate de que la ruta sea correcta
+import { AuthService } from './auth.service'; 
 
 @Component({
   selector: 'app-root',
