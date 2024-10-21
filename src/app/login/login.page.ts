@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
         contrasena: this.password
       };
 
-      this.http.post('http://44.194.177.243:8100/usuario', loginData)
+      this.http.post('http://44.194.177.243:8001/usuario', loginData)
         .subscribe(
           (response: any) => {
             if (response.success) {
