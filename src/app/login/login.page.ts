@@ -23,16 +23,21 @@ export class LoginPage implements OnInit {
         nombre: this.username,
         contrasena: this.password
       };
-
+  
       this.http.post('http://44.194.177.243:8001/login', loginData)
         .subscribe(
           (response: any) => {
             if (response.success) {
               const user = {
-                nombre: response.user.nombre, 
-                apellido: response.user.apellido 
+                id: response.user.id, // Asegúrate de que este campo está disponible
+                nombre: response.user.nombre,
+                admin: response.user.admin // Aquí agregas el campo admin
               };
-
+  
+              // Guarda el usuario en localStorage
+              localStorage.setItem('user', JSON.stringify(user));
+  
+              // Inicia sesión a través del AuthService
               this.authService.login(user); 
               this.router.navigate(['/folder/inbox']);
             } else {
@@ -47,4 +52,5 @@ export class LoginPage implements OnInit {
       console.log('Formulario inválido');
     }
   }
+  
 }
