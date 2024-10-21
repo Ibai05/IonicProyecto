@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
       return true; 
     }
 
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['/folder/inbox']);
     return false;
   }
 }
