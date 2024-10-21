@@ -15,6 +15,6 @@ export class CursoService {
   }
 
   asignarAlumnoACurso(alumnoId: number, cursoId: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/curso-alumno`, { alumnoId, cursoId });
+    return this.http.post(`http://44.194.177.243:8001/curso-alumno`, { alumnoId, cursoId });
   }
 }
