@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http'; // Importa HttpClient para hacer peticiones
-import { Router } from '@angular/router'; // Para redireccionar al inicio
+import { HttpClient } from '@angular/common/http'; 
+import { Router } from '@angular/router'; 
+import { AuthService } from '../auth.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   username: string = ''; 
   password: string = ''; 
 
-  constructor(private http: HttpClient, private router: Router) {} // Inyecta HttpClient y Router
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {} 
 
   ngOnInit() {}
 
@@ -27,14 +28,12 @@ export class LoginPage implements OnInit {
         .subscribe(
           (response: any) => {
             if (response.success) {
-              // Supongamos que el backend devuelve nombre y apellido
               const user = {
-                nombre: response.user.nombre, // Cambia según la respuesta de tu backend
-                apellido: response.user.apellido // Cambia según la respuesta de tu backend
+                nombre: response.user.nombre, 
+                apellido: response.user.apellido 
               };
 
-              localStorage.setItem('user', JSON.stringify(user)); // Guardar usuario en LocalStorage
-
+              this.authService.login(user); // Llama al servicio de autenticación para guardar el usuario
               this.router.navigate(['/folder/inbox']);
             } else {
               console.log('Credenciales incorrectas');

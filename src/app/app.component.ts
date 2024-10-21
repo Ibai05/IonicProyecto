@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-root',
@@ -16,13 +17,15 @@ export class AppComponent {
   public userName: string = '';
   public userSurname: string = '';
 
-  constructor() {
-    this.initializeApp();
-  }
-
-  initializeApp() {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    this.userName = user.nombre || '';
-    this.userSurname = user.apellido || '';
+  constructor(private authService: AuthService) {
+    this.authService.user$.subscribe((user: { nombre: string; apellido: string; }) => {
+      if (user) {
+        this.userName = user.nombre || '';
+        this.userSurname = user.apellido || '';
+      } else {
+        this.userName = '';
+        this.userSurname = '';
+      }
+    });
   }
 }
