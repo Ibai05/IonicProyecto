@@ -10,7 +10,8 @@ export class AlumnoService {
 
   constructor(private http: HttpClient) {}
 
-  getAlumnos(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/alumnos`); // Asegúrate de que esta ruta exista en tu API
-  }
+  getAlumnos(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+}
+
 }
