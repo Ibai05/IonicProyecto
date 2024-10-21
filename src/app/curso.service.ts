@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CursoService {
-  private apiUrl = 'http://44.194.177.243:8001/curso'; 
+  private apiUrl = 'http://44.194.177.243:8001/cursos'; 
 
   constructor(private http: HttpClient) {}
 
