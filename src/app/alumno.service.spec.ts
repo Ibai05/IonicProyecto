@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { AlumnoService } from './alumno.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class AlumnoService {
+  private apiUrl = 'http://44.194.177.243:8001/alumno'; // Cambia esto a tu URL base
 
-describe('AlumnoService', () => {
-  let service: AlumnoService;
+  constructor(private http: HttpClient) {}
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AlumnoService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  getAlumnos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/alumnos`); // Asegúrate de que esta ruta exista en tu API
+  }
+}

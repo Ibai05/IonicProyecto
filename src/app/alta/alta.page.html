@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>Alta</ion-title>
+    <ion-title>Alta de Alumno en Curso</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Alta</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form (ngSubmit)="onSubmit(altaForm)" #altaForm="ngForm">
+    <ion-item>
+      <ion-label>Alumno</ion-label>
+      <ion-select [(ngModel)]="selectedAlumno" name="alumno" required>
+        <ion-select-option *ngFor="let alumno of alumnos" [value]="alumno.id">
+          {{ alumno.nombre_alumno }} {{ alumno.apellido1 }} {{ alumno.apellido2 }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Curso</ion-label>
+      <ion-select [(ngModel)]="selectedCurso" name="curso" required>
+        <ion-select-option *ngFor="let curso of cursos" [value]="curso.id">
+          {{ curso.nombreCurso }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Enviar</ion-button>
+  </form>
 </ion-content>
