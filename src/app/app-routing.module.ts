@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'alta',
-    loadChildren: () => import('./alta/alta.module').then( m => m.AltaPageModule), canActivate: [AuthGuard] ,
+    loadChildren: () => import('./alta/alta.module').then( m => m.AltaPageModule), canActivate: [AuthGuard, AdminGuard] ,
   },
   {
     path: 'login',
