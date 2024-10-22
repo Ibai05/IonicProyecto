@@ -13,6 +13,10 @@ export class FolderPage implements OnInit {
   public cursos!: any[]; 
   private activatedRoute = inject(ActivatedRoute);
   private cursoService = inject(CursoService);
+  router: any;
+  verAlumnos(cursoId: number) {
+    this.router.navigate(['/alumnos', cursoId]);
+  }
 
   constructor() {}
 

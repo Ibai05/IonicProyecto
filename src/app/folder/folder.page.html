@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let curso of cursos">
+    <ion-item *ngFor="let curso of cursos" (click)="verAlumnos(curso.id)">
       {{ curso.nombreCurso }}
     </ion-item>
   </ion-list>
