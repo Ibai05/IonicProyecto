@@ -14,7 +14,7 @@ export class MisCursosPage implements OnInit {
   ngOnInit() {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const userId = user.id;
-
+  
     this.cursoService.getCursosPorUsuario(userId).subscribe(
       (data: any[]) => {
         this.cursos = data;
@@ -24,4 +24,5 @@ export class MisCursosPage implements OnInit {
       }
     );
   }
+  
 }
