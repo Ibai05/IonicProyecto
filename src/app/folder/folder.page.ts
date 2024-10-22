@@ -23,7 +23,7 @@ export class FolderPage implements OnInit {
   }
 
   cargarCursos() {
-    const usuario = this.authService.getUsuario(); // Obtener usuario del localStorage
+    const usuario = this.authService.getCurrentUser(); // Obtener usuario del localStorage
     const usuarioId = usuario.id;
 
     this.cursoService.getCursosPorUsuario(usuarioId).subscribe(
