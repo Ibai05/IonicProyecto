@@ -27,8 +27,8 @@ const routes: Routes = [
   },
   {
     path: 'mis-cursos',
-    loadChildren: () => import('./mis-cursos/mis-cursos.module').then(m => m.MisCursosPageModule)
-  }  
+    loadChildren: () => import('./mis-cursos/mis-cursos.module').then( m => m.MisCursosPageModule)
+  }
 ];
 
 @NgModule({

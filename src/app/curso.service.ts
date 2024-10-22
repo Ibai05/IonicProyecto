@@ -19,8 +19,6 @@ export class CursoService {
 
   }
 
-  getMisCursos(usuarioId: number): Observable<any[]> {
-    return this.http.get<any[]>(`http://44.194.177.243:8001/usuario/${usuarioId}/cursos`);
-  }  
+  
   
 }
