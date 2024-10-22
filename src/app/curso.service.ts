@@ -19,8 +19,11 @@ export class CursoService {
 
   }
 
-  getCursosPorUsuario(userId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/usuario/cursos/${userId}`);
-  }
+  // src/app/curso.service.ts
+
+getCursosPorUsuario(userId: string): Observable<any> {
+  return this.http.get<any>(`http://44.194.177.243:8001/usuario/cursos/${userId}`);
+}
+
   
 }
