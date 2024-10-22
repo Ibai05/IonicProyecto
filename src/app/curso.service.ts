@@ -19,8 +19,5 @@ export class CursoService {
 
   }
 
-  getAlumnosPorCurso(cursoId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/cursos/${cursoId}/alumnos`);
-  }
-
+  
 }
