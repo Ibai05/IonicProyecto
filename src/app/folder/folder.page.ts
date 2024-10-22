@@ -35,5 +35,6 @@ export class FolderPage implements OnInit {
 
   irACursoAlumnos() {
     this.router.navigate(['/curso-alumnos']);
+    
   }
 }
