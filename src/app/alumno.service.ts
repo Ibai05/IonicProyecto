@@ -14,4 +14,8 @@ export class AlumnoService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
+  getAlumnosPorCurso(cursoId: string | null): Observable<any> {
+    return this.http.get<any>(`http://44.194.177.243:8001/curso/${cursoId}/alumnos`);
+  }  
+
 }
