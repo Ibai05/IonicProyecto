@@ -4,17 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="cursos.length > 0">
+<ion-content>
   <ion-list>
     <ion-item *ngFor="let curso of cursos">
-      <ion-label>
-        <h2>{{ curso.nombreCurso }}</h2>
-        <p *ngIf="!isAdmin">Nota: {{ curso.nota }}</p> 
-      </ion-label>
+      {{ curso.nombreCurso }}
     </ion-item>
   </ion-list>
-</ion-content>
-
-<ion-content *ngIf="cursos.length === 0">
-  <ion-text>No estás inscrito en ningún curso.</ion-text>
 </ion-content>

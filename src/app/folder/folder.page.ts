@@ -1,54 +1,34 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CursoService } from '../curso.service'; 
+import { CursoService } from '../curso.service'; // Asegúrate de que la ruta sea correcta
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
   styleUrls: ['./folder.page.scss'],
 })
-export class InicioPage implements OnInit {
-  cursos: any[] = [];
-  isAdmin: boolean = false;
+export class FolderPage implements OnInit {
+  public folder!: string;
+  public cursos!: any[]; 
+  private activatedRoute = inject(ActivatedRoute);
+  private cursoService = inject(CursoService);
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit() {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    this.isAdmin = user.admin;
-
-    if (this.isAdmin) {
-      // Si el usuario es admin, cargar todos los cursos
-      this.cargarTodosLosCursos();
-    } else {
-      // Si el usuario no es admin, cargar los cursos del alumno
-      this.cargarCursosAlumno(user.id);
-    }
+    this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    this.cargarCursos(); 
   }
 
-  cargarTodosLosCursos() {
-    this.http.get('http://44.194.177.243:8001/cursos')
-      .subscribe(
-        (data: any) => {
-          this.cursos = data;
-        },
-        (error: any) => {
-          console.log('Error al cargar todos los cursos:', error);
-        }
-      );
-  }
-
-  cargarCursosAlumno(usuarioId: number) {
-    this.http.get(`http://44.194.177.243:8001/alumno/cursos/${usuarioId}`)
-      .subscribe(
-        (data: any) => {
-          this.cursos = data;
-        },
-        (error: any) => {
-          console.log('Error al cargar cursos del alumno:', error);
-        }
-      );
+  cargarCursos() {
+    this.cursoService.getCursos().subscribe(
+      (data: any[]) => {
+        this.cursos = data; 
+      },
+      (error: any) => {
+        console.error('Error al cargar cursos', error);
+      }
+    );
   }
 }
