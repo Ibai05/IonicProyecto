@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CursoService } from '../curso.service'; 
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+  selector: 'app-folder',
+  templateUrl: './folder.page.html',
+  styleUrls: ['./folder.page.scss'],
 })
 export class InicioPage implements OnInit {
   cursos: any[] = [];
@@ -38,7 +41,7 @@ export class InicioPage implements OnInit {
   }
 
   cargarCursosAlumno(usuarioId: number) {
-    this.http.get(`http://44.194.177.243:8001/alumno/cursos/alumno`)
+    this.http.get(`http://44.194.177.243:8001/alumno/cursos/${usuarioId}`)
       .subscribe(
         (data: any) => {
           this.cursos = data;

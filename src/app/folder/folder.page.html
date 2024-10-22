@@ -9,7 +9,7 @@
     <ion-item *ngFor="let curso of cursos">
       <ion-label>
         <h2>{{ curso.nombreCurso }}</h2>
-        <p *ngIf="!isAdmin">Nota: {{ curso.nota }}</p> <!-- Mostrar nota solo si no es admin -->
+        <p *ngIf="!isAdmin">Nota: {{ curso.nota }}</p> 
       </ion-label>
     </ion-item>
   </ion-list>
