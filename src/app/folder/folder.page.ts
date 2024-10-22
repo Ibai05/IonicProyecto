@@ -9,14 +9,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-  [x: string]: any;
   public folder!: string;
   public cursos!: any[]; 
   private activatedRoute = inject(ActivatedRoute);
   private cursoService = inject(CursoService);
-  verAlumnos(cursoId: number) {
-    this['router'].navigate(['/alumno', cursoId]);
-  }
 
   constructor() {}
 
