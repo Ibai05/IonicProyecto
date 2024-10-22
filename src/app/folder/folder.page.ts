@@ -33,7 +33,7 @@ export class FolderPage implements OnInit {
     );
   }
 
-  irACursoAlumnos(cursoId: number) {
-    this.router.navigate(['/curso-alumnos', cursoId]);
+  irACursoAlumnos() {
+    this.router.navigate(['/curso-alumnos']);
   }
 }
