@@ -29,17 +29,20 @@ export class LoginPage implements OnInit {
           (response: any) => {
             if (response.success) {
               const user = {
-                id: response.user.id, // Asegúrate de que este campo está disponible
+                id: response.user.id, 
                 nombre: response.user.nombre,
-                admin: response.user.admin // Aquí agregas el campo admin
+                admin: response.user.admin 
               };
   
-              // Guarda el usuario en localStorage
               localStorage.setItem('user', JSON.stringify(user));
-  
-              // Inicia sesión a través del AuthService
+
               this.authService.login(user); 
-              this.router.navigate(['/folder/inbox']);
+
+              if (user.admin) {
+                this.router.navigate(['/folder/inbox']); 
+              } else {
+                this.router.navigate(['/mis-cursos']); 
+              }
             } else {
               console.log('Credenciales incorrectas');
             }
@@ -52,5 +55,4 @@ export class LoginPage implements OnInit {
       console.log('Formulario inválido');
     }
   }
-  
 }
