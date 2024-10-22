@@ -7,10 +7,7 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let curso of cursos">
-      {{ curso.nombreCurso }} 
-      <div *ngIf="curso.nota !== undefined">
-        - Nota: {{ curso.nota }}
-      </div>
+      {{ curso.nombreCurso }}
     </ion-item>
   </ion-list>
 </ion-content>

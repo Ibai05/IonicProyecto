@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CursoService } from '../curso.service';
-import { AuthService } from '../auth.service'; // Asegúrate de importar tu AuthService
+import { CursoService } from '../curso.service'; // Asegúrate de que la ruta sea correcta
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-folder',
@@ -10,25 +10,21 @@ import { AuthService } from '../auth.service'; // Asegúrate de importar tu Auth
 })
 export class FolderPage implements OnInit {
   public folder!: string;
-  public cursos!: any[];
+  public cursos!: any[]; 
   private activatedRoute = inject(ActivatedRoute);
   private cursoService = inject(CursoService);
-  private authService = inject(AuthService); // Inyectar AuthService
 
   constructor() {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.cargarCursos();
+    this.cargarCursos(); 
   }
 
   cargarCursos() {
-    const usuario = this.authService.getCurrentUser(); // Obtener usuario del localStorage
-    const usuarioId = usuario.id;
-
-    this.cursoService.getCursosPorUsuario(usuarioId).subscribe(
+    this.cursoService.getCursos().subscribe(
       (data: any[]) => {
-        this.cursos = data;
+        this.cursos = data; 
       },
       (error: any) => {
         console.error('Error al cargar cursos', error);
