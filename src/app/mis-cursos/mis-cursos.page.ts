@@ -13,7 +13,7 @@ export class MisCursosPage implements OnInit {
 
   ngOnInit() {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    const userId = user.id; // Asegúrate de que esto corresponde al ID del usuario
+    const userId = user.id;
 
     this.cursoService.getCursosPorUsuario(userId).subscribe(
       (data: any[]) => {
