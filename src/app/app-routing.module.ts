@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'curso-alumnos',
+    path: 'curso-alumnos/:id',  // Aquí se agrega el parámetro :id
     loadChildren: () => import('./curso-alumnos/curso-alumnos.module').then( m => m.CursoAlumnosPageModule)
   }
 ];

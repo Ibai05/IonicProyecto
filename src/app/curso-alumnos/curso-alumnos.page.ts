@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlumnoService } from '../alumno.service'; 
+import { AlumnoService } from '../alumno.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-curso-alumnos',
@@ -20,9 +20,10 @@ export class CursoAlumnosPage implements OnInit {
   }
 
   cargarAlumnos(cursoId: string | null) {
+    // Llama a la función del servicio que carga los alumnos según el cursoId
     this.alumnoService.getAlumnosPorCurso(cursoId).subscribe(
       (data: any[]) => {
-        this.alumnos = data;
+        this.alumnos = data; 
       },
       (error: any) => {
         console.error('Error al cargar alumnos', error);

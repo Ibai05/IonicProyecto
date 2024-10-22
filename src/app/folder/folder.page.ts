@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CursoService } from '../curso.service';
+import { CursoService } from '../curso.service'; // Asegúrate de que la ruta sea correcta
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class FolderPage implements OnInit {
   public folder!: string;
-  public cursos!: any[];
+  public cursos!: any[]; 
   private activatedRoute = inject(ActivatedRoute);
-  private cursoService = inject(CursoService);
   private router = inject(Router);
+  private cursoService = inject(CursoService);
 
   constructor() {}
 
@@ -33,8 +33,8 @@ export class FolderPage implements OnInit {
     );
   }
 
-  irACursoAlumnos() {
-    this.router.navigate(['/curso-alumnos']);
-    
+  irACursoAlumnos(cursoId: number) {
+    // Almacenar el ID del curso y navegar a la página de alumnos
+    this.router.navigate(['/curso-alumnos', cursoId]);
   }
 }
