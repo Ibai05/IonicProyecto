@@ -18,5 +18,9 @@ export class CursoService {
     return this.http.post(`${this.apiUrl}/asignar-alumno`, { alumno_id: alumnoId, curso_id: cursoId });
 
   }
+
+  getMisCursos(usuarioId: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://44.194.177.243:8001/usuario/${usuarioId}/cursos`);
+  }  
   
 }
