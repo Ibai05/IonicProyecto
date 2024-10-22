@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CursoService } from '../curso.service'; // Asegúrate de que la ruta sea correcta
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-folder',
@@ -10,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class FolderPage implements OnInit {
   public folder!: string;
-  public cursos!: any[]; 
+  public cursos!: any[];
+  public alumnos: any[] = []; // Almacenar los alumnos del curso seleccionado
   private activatedRoute = inject(ActivatedRoute);
   private cursoService = inject(CursoService);
 
@@ -18,16 +18,27 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.cargarCursos(); 
+    this.cargarCursos();
   }
 
   cargarCursos() {
     this.cursoService.getCursos().subscribe(
       (data: any[]) => {
-        this.cursos = data; 
+        this.cursos = data;
       },
       (error: any) => {
         console.error('Error al cargar cursos', error);
+      }
+    );
+  }
+
+  cargarAlumnos(cursoId: number) {
+    this.cursoService.getAlumnosPorCurso(cursoId).subscribe(
+      (data: any[]) => {
+        this.alumnos = data; // Asignar los alumnos del curso seleccionado
+      },
+      (error: any) => {
+        console.error('Error al cargar alumnos del curso', error);
       }
     );
   }
