@@ -4,9 +4,9 @@ import { AlumnoService } from '../alumno.service'; // Asegúrate de que la ruta 
 import { CursoService } from '../curso.service';
 
 @Component({
-  selector: 'app-alumnos',
-  templateUrl: './alumnos.page.html',
-  styleUrls: ['./alumnos.page.scss'],
+  selector: 'app-alumno',
+  templateUrl: './alumno.page.html',
+  styleUrls: ['./alumno.page.scss'],
 })
 export class AlumnosPage implements OnInit {
   public alumnos!: any[];
