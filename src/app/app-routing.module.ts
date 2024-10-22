@@ -24,6 +24,10 @@ const routes: Routes = [
   {
     path: 'curso-alumnos/:id',  // Aquí se agrega el parámetro :id
     loadChildren: () => import('./curso-alumnos/curso-alumnos.module').then( m => m.CursoAlumnosPageModule)
+  },
+  {
+    path: 'mis-cursos',
+    loadChildren: () => import('./mis-cursos/mis-cursos.module').then( m => m.MisCursosPageModule)
   }
 ];
 
