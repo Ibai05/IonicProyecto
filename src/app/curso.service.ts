@@ -19,6 +19,8 @@ export class CursoService {
 
   }
 
-  
+  getCursosPorUsuario(userId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/usuario/cursos/${userId}`);
+  }
   
 }

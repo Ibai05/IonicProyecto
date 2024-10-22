@@ -1,13 +1,23 @@
-<ion-header [translucent]="true">
+<!-- src/app/mis-cursos/mis-cursos.page.html -->
+
+<ion-header>
   <ion-toolbar>
-    <ion-title>misCursos</ion-title>
+    <ion-title>Mis Cursos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">misCursos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list *ngIf="cursos.length > 0; else noCursos">
+    <ion-item *ngFor="let curso of cursos">
+      <ion-label>
+        <h2>{{ curso.curso_nombre }}</h2>
+        <p>Nota: {{ curso.nota }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ng-template #noCursos>
+    <ion-item>
+      <ion-label>No tienes cursos asignados.</ion-label>
+    </ion-item>
+  </ng-template>
 </ion-content>
