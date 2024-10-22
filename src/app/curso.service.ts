@@ -16,8 +16,9 @@ export class CursoService {
 
   asignarAlumnoACurso(alumnoId: number, cursoId: number): Observable<any> {
     return this.http.post(`${this.apiUrl}/asignar-alumno`, { alumno_id: alumnoId, curso_id: cursoId });
-
   }
 
-  
+  getUsuariosPorCurso(cursoId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${cursoId}/usuarios`); // Nueva ruta
+  }
 }
