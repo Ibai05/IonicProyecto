@@ -3,12 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { AlumnoService } from '../alumno.service'; // Asegúrate de que la ruta sea correcta
 import { CursoService } from '../curso.service';
 
+
+
 @Component({
   selector: 'app-alumno',
   templateUrl: './alumno.page.html',
   styleUrls: ['./alumno.page.scss'],
 })
-export class AlumnosPage implements OnInit {
+export class AlumnoPage implements OnInit {
   public alumnos!: any[];
   private activatedRoute = inject(ActivatedRoute);
   private alumnoService = inject(AlumnoService);
