@@ -19,6 +19,13 @@ export class CursoService {
 
   }
 
-  
+  getCursosPorUsuario(userId: string): Observable<any> {
+    return this.http.get<any>(`http://44.194.177.243:8001/usuario/cursos`, {
+        headers: {
+            'user_id': userId
+        }
+    });
+  }
+
   
 }
