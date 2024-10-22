@@ -10,7 +10,7 @@
       <ion-label>Alumno</ion-label>
       <ion-select [(ngModel)]="selectedAlumno" name="alumno" required>
         <ion-select-option *ngFor="let alumno of alumnos" [value]="alumno.id">
-          {{ alumno.nombre_alumno }} {{ alumno.apellido1 }} {{ alumno.apellido2 }}
+          {{ alumno.nombre_alumno }} {{ alumno.apellido1_alumno }} {{ alumno.apellido2_alumno }}
         </ion-select-option>
       </ion-select>
     </ion-item>
