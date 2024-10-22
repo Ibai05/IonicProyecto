@@ -14,6 +14,4 @@ export class AlumnoService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  
-
 }
