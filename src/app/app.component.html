@@ -21,13 +21,15 @@
             </ion-item>
           </ion-menu-toggle>
 
-
-          <ion-menu-toggle auto-hide="false" *ngIf="isAdmin" *ngFor="let p of adminPages">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          <!-- Páginas adicionales para administradores -->
+          <ng-container *ngIf="isAdmin">
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of adminPages">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+                <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ng-container>
         </ion-list>
 
         <ion-list id="labels-list">
