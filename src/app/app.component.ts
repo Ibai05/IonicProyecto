@@ -11,6 +11,7 @@ export class AppComponent {
     { title: 'Inicio', url: '/folder/inbox', icon: 'mail' },
     { title: 'Alta', url: '/alta', icon: 'mail' },
     { title: 'Login', url: '/login', icon: 'mail' },
+    { title: 'Borrar', url: '/borrar', icon: 'mail' },
   ];
   
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
