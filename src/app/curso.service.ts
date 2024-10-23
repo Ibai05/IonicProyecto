@@ -23,5 +23,8 @@ export class CursoService {
     return this.http.get<any>(`http://44.194.177.243:8001/usuario/cursos/${userId}`);
   }
 
+  getCursosSinNota(alumnoId: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://44.194.177.243:8001/alumno/${alumnoId}/cursos-sin-nota`);
+  }
   
 }

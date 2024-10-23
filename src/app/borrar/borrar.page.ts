@@ -11,8 +11,9 @@ import { CursoService } from '../curso.service';
 export class BorrarPage implements OnInit {
 
   alumnos: any[] = [];
-  cursos: any[] = [];
+  cursosSinNota: any[] = [];
   selectedAlumno: number | null = null;
+  selectedCurso: number | null = null;
 
   constructor(private alumnoService: AlumnoService, private cursoService: CursoService) {}
 
@@ -29,6 +30,18 @@ export class BorrarPage implements OnInit {
         console.error('Error al cargar alumnos', error);
       }
     );
+  }
+  cargarCursosSinNota() {
+    if (this.selectedAlumno) {
+      this.cursoService.getCursosSinNota(this.selectedAlumno).subscribe(
+        (data: any[]) => {
+          this.cursosSinNota = data;
+        },
+        (error: any) => {
+          console.error('Error al cargar cursos sin nota', error);
+        }
+      );
+    }
   }
 
 
