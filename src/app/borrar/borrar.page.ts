@@ -31,6 +31,7 @@ export class BorrarPage implements OnInit {
       }
     );
   }
+
   cargarCursosSinNota() {
     if (this.selectedAlumno) {
       this.cursoService.getCursosSinNota(this.selectedAlumno).subscribe(
@@ -44,5 +45,21 @@ export class BorrarPage implements OnInit {
     }
   }
 
-
+  onSubmit(form: NgForm) {
+    if (this.selectedAlumno && this.selectedCurso) {
+      this.cursoService.quitarAlumnoDeCurso(this.selectedAlumno, this.selectedCurso).subscribe(
+        (response: any) => {
+          console.log('Alumno dado de baja del curso con éxito', response);
+          form.reset();
+          this.selectedAlumno = null;
+          this.selectedCurso = null;
+        },
+        (error: any) => {
+          console.error('Error al dar de baja al alumno del curso', error);
+        }
+      );
+    } else {
+      console.log('Formulario inválido o selección incompleta');
+    }
+  }
 }
