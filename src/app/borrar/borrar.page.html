@@ -8,7 +8,7 @@
   <form (ngSubmit)="onSubmit(bajaForm)" #bajaForm="ngForm">
     <ion-item>
       <ion-label>Alumno</ion-label>
-      <ion-select [(ngModel)]="selectedAlumno" name="alumno" required>
+      <ion-select [(ngModel)]="selectedAlumno" name="alumno" (ionChange)="cargarCursosSinNota()" required>
         <ion-select-option *ngFor="let alumno of alumnos" [value]="alumno.id">
           {{ alumno.nombre_alumno }} {{ alumno.apellido1_alumno }} {{ alumno.apellido2_alumno }}
         </ion-select-option>
@@ -16,10 +16,10 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Asignatura</ion-label>
-      <ion-select [(ngModel)]="selectedAsignatura" name="asignatura" required>
-        <ion-select-option *ngFor="let asignatura of asignaturas" [value]="asignatura.id">
-          {{ asignatura.nombreAsignatura }}
+      <ion-label>Curso</ion-label>
+      <ion-select [(ngModel)]="selectedCurso" name="curso" required>
+        <ion-select-option *ngFor="let curso of cursosSinNota" [value]="curso.id">
+          {{ curso.nombreCurso }}
         </ion-select-option>
       </ion-select>
     </ion-item>
