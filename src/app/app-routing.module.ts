@@ -31,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'borrar',
-    loadChildren: () => import('./borrar/borrar.module').then( m => m.BorrarPageModule)
+    loadChildren: () => import('./borrar/borrar.module').then( m => m.BorrarPageModule),canActivate: [AuthGuard, AdminGuard] , 
   }
 ];
 
