@@ -28,7 +28,7 @@ export class CursoService {
   }
 
   quitarAlumnoDeCurso(alumnoId: number, cursoId: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/alumno/${alumnoId}/curso/${cursoId}/baja`);
+    return this.http.delete(`http://44.194.177.243:8001/alumno/${alumnoId}/curso/${cursoId}/baja`);
   }
   
 }
