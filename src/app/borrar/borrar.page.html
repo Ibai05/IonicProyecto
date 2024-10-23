@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>borrar</ion-title>
+    <ion-title>Darse de Baja</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">borrar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form (ngSubmit)="onSubmit(bajaForm)" #bajaForm="ngForm">
+    <ion-item>
+      <ion-label>Alumno</ion-label>
+      <ion-select [(ngModel)]="selectedAlumno" name="alumno" required>
+        <ion-select-option *ngFor="let alumno of alumnos" [value]="alumno.id">
+          {{ alumno.nombre_alumno }} {{ alumno.apellido1_alumno }} {{ alumno.apellido2_alumno }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Asignatura</ion-label>
+      <ion-select [(ngModel)]="selectedAsignatura" name="asignatura" required>
+        <ion-select-option *ngFor="let asignatura of asignaturas" [value]="asignatura.id">
+          {{ asignatura.nombreAsignatura }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Darse de baja</ion-button>
+  </form>
 </ion-content>
