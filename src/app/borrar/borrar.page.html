@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <form (ngSubmit)="onSubmit(bajaForm)" #bajaForm="ngForm"></form>
+  <form (ngSubmit)="onSubmit(bajaForm)" #bajaForm="ngForm">
     <ion-item>
       <ion-label>Alumno</ion-label>
       <ion-select [(ngModel)]="selectedAlumno" name="alumno" (ionChange)="cargarCursosSinNota()" required>
