@@ -17,7 +17,6 @@ export class AppComponent {
     { title: 'Borrar', url: '/borrar', icon: 'trash' }
   ];
 
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   public userName: string = '';
   public userSurname: string = '';
   public isAdmin: boolean = false; 
